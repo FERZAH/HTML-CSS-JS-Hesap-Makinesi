@@ -119,6 +119,7 @@ function addProperty() {
 
 let button = $("td");
 let sonuc = document.getElementById("sonuc");
+let islemler = ["+", "x", "-", "/"];
 button.on("click", function () {
     switch (this.id) {
         case "number":
@@ -159,15 +160,19 @@ button.on("click", function () {
                     break;
                 case "topla":
                     if (sonuc.innerText == 0) return;
+                    if (islemler.includes(sonuc.innerText.split()[0].slice(sonuc.innerText.length - 1, sonuc.innerText.length))) return;
                     sonuc.innerText += "+";
                     break;
                 case "cikar":
+                    if (islemler.includes(sonuc.innerText.split()[0].slice(sonuc.innerText.length - 1, sonuc.innerText.length))) return;
                     sonuc.innerText += "-";
                     break;
                 case "carp":
+                    if (islemler.includes(sonuc.innerText.split()[0].slice(sonuc.innerText.length - 1, sonuc.innerText.length))) return;
                     sonuc.innerText += "*";
                     break;
                 case "bolme":
+                    if (islemler.includes(sonuc.innerText.split()[0].slice(sonuc.innerText.length - 1, sonuc.innerText.length))) return;
                     sonuc.innerText += "/";
                     break;
                 case "hesapla":
